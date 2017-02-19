@@ -1,2 +1,6 @@
 tmp
 .coveralls.yml
+/build/
+/node_modules/
+/.idea/
+/coverage/

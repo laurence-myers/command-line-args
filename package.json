@@ -1,14 +1,17 @@
 {
-  "name": "command-line-args",
-  "version": "4.0.1",
-  "description": "A mature, feature-complete library to parse command-line options.",
-  "repository": "https://github.com/75lb/command-line-args.git",
-  "main": "lib/command-line-args.js",
-  "bin": "bin/cli.js",
+  "name": "command-line-args-ts",
+  "version": "0.0.1",
+  "description": "A TypeScript library to parse command-line options, based on 75lb/command-line-args.",
+  "repository": "https://github.com/laurence-myers/command-line-args.git",
+  "private": true,
+  "main": "build/lib/command-line-args.js",
+  "bin": "build/bin/cli.js",
   "scripts": {
-    "test": "test-runner test/*.js",
-    "docs": "jsdoc2md -l off -t jsdoc2md/README.hbs lib/*.js > README.md; echo",
-    "cover": "istanbul cover ./node_modules/.bin/test-runner test/*.js && cat coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf coverage; echo"
+    "build": "tsc",
+    "docs": "jsdoc2md -l off -t jsdoc2md/README.hbs build/lib/*.js > README.md; echo",
+    "cover": "istanbul cover runtests.js",
+    "test": "node runtests.js",
+    "watch": "tsc -w"
   },
   "keywords": [
     "argv",
@@ -23,12 +26,23 @@
     "command",
     "line"
   ],
+  "engines": {
+    "node": "6.9.1",
+    "npm": "3.10.1"
+  },
   "author": "Lloyd Brookes <75pound@gmail.com>",
+  "contributors": [
+    "Laurence Dougal Myers <laurencedougalmyers@gmail.com>"
+  ],
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^2.11.15",
+    "@types/mocha": "2.2.39",
+    "@types/node": "^6.0.63",
+    "glob": "7.1.1",
+    "istanbul": "0.4.5",
     "jsdoc-to-markdown": "^2.0.1",
-    "test-runner": "^0.3.0"
+    "test-runner": "^0.3.0",
+    "typescript": "2.1.6"
   },
   "dependencies": {
     "array-back": "^1.0.4",
